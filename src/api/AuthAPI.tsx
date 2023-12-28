@@ -7,6 +7,9 @@ import {
 } from 'firebase/auth';
 import { auth } from '../config/firestore';
 
+console.log(auth);
+
+
 export const LoginAPI = (email: string, password: string) => {
   try {
     const response = signInWithEmailAndPassword(auth, email, password);

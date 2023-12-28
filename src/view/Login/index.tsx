@@ -10,9 +10,10 @@ interface UserCredentials {
 export const Login: React.FC = () => {
   const navigate = useNavigate();
   const [credentails, setCredentials] = useState<UserCredentials>(null);
-  const login = async () => {
+  const sendLogin = async () => {
     try {
       const res = await LoginAPI(credentails.email, credentails.password);
+      console.log(res);
       localStorage.setItem("userEmail", res.user.email);
       navigate("/home");
     } catch (err) {
@@ -38,7 +39,7 @@ export const Login: React.FC = () => {
           className="common-input"
           placeholder="Password"
         />
-        <button onClick={login} className="login-btn">
+        <button onClick={sendLogin} className="login-btn">
           Iniciar sesion
         </button>
       </div>
