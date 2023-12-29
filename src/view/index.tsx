@@ -10,8 +10,6 @@ export const Home = () => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user: User | null) => {
-      console.log(user);
-
       if (user && user.refreshToken) {
         // Si user no es nulo y tiene la propiedad accessToken
         navigate("/home");
